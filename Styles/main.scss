@@ -9,6 +9,9 @@
 html {
     box-sizing: border-box;
 }
+body{
+    background: url("../images/shoppingBackground.avif");
+}
 
 .main-nav {
     //position: absolute;
@@ -17,49 +20,62 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4285F4;
+    background-color: #acddf1;
     flex-direction: column;
 }
+.main-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.main-nav__input {
+.main-form__input {
     margin: 10px 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    width: 300px;
+    height: 30px;
+}
+.main-form__input:hover {
+    border-color: gray;
+}
+.main-form__image{
+    height: 25px;
+    width: 25px;
 }
 
 .main-nav__title {
     font-family: 'Lato', sans-serif;
     font-size: 40px;
-    //font-weight: 300;
 }
 
 .main-content__title {
     font-size: 35px;
     font-weight: 300;
-    padding-top: 100px;//Porque aqui si pongo margin se core es todo
-
-
+    padding-top: 110px;//Porque aqui si pongo margin se core es todo
+    padding-bottom: 25px;
 }
-
 .product-list {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: wrap;
-    //flex-direction: column;
 }
-
 .product-list__item {
     display: grid;
     gap: 5px;
-    grid-template-columns: 200px 100px;
+    grid-template-columns: 200px 30px;
     grid-auto-rows: minmax(10px, auto);
-    padding: 30px;
+    //padding: 20px;
+    padding: 10px;
+    margin: 9px;
+    border: 1px solid #000;
+    border-radius: 5px;
 }
-
 .product-list__title {
     grid-column: 1 / 3;
     grid-row: 1;
 }
-
 .product-list__description {
     grid-column: 1 / 3;
     grid-row: 2;
@@ -76,10 +92,11 @@ html {
 }
 
 .product-list__image {
-    height: 265px;
-    width: 265px;
+    height: 225px;
+    width: 225px;
     grid-column: 3;
     grid-row: 1 / 6;
+    align-items: center;//No me queda muy claro como se podria centrar la imagen
 }
 
 .product-list__id {
