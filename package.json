@@ -1,0 +1,24 @@
+{
+  "name": "theamazingstore",
+  "version": "1.0.0",
+  "description": "Project to practice CSS, JS and HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transpile": "sass ./Styles/main.scss main.css --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanOssa1/TheAmazingStore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanOssa1/TheAmazingStore/issues"
+  },
+  "homepage": "https://github.com/JuanOssa1/TheAmazingStore#readme",
+  "devDependencies": {
+    "sass": "^1.58.0"
+  }
+}
