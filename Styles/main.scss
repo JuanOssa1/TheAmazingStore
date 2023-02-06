@@ -17,7 +17,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: #4285F4;
     flex-direction: column;
 }
 
@@ -31,10 +31,11 @@ html {
     //font-weight: 300;
 }
 
-
 .main-content__title {
     font-size: 35px;
     font-weight: 300;
+    padding-top: 100px;//Porque aqui si pongo margin se core es todo
+
 
 }
 
