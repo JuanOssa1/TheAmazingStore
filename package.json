@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "sass ./Styles/main.scss main.css --no-source-map"
+    "transpile": "sass ./Styles/main.scss main.css --no-source-map",
+    "jsoninfo": "json-server info.json"
   },
   "repository": {
     "type": "git",
