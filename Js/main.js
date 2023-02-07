@@ -1,60 +1,55 @@
 let url = 'http://localhost:3000/products'
 let ul = document.getElementById('productListId')
 let userInput = document.getElementById('mainFormInputId')
-//const list = document.createDocumentFragment();
+let products
+const list = document.createDocumentFragment();
+
+function fetchData() {
+    fetch(url).then((response)=>{
+        return response.json();
+    }).then((data)=>{
+        products = data
+    }).catch((error)=>{
+        console.log(error)
+    })   
+}
 
 function loadData(url) {
     fetch(url).then((response)=>{
         return response.json();
     }).then((data)=>{
-        let products = data
-        //Se puede hacer un foreach
-        products.forEach((product)=>{
-
+        products = data
+        products.forEach((product)=>{  
             let productListItem = document.createElement('li')
-            let productListTitle= document.createElement('h1')
-            let productListPrice= document.createElement('p')
-            let productListDescription= document.createElement('p')
-            let productListCategory= document.createElement('p')
-            let productListImage= document.createElement('img')
-            let productListId= document.createElement('p')
-
             productListItem.classList.add('product-list__item')
-            productListTitle.classList.add('product-list__title')
-            productListPrice.classList.add('product-list__price')
-            productListDescription.classList.add('product-list__description')
-            productListCategory.classList.add('product-list__category')
-            productListImage.classList.add('product-list__image')
-            productListId.classList.add('product-list__id')
-
-            
-            productListTitle.innerHTML = `${product.title}`
-            productListPrice.innerHTML = `<b>$ </b>${product.price}`
-            productListDescription.innerHTML = `${product.description}`
-            productListCategory.innerHTML = `<b>Category: </b> ${product.category}`
-            productListImage.src = `${product.image}`
-            productListId.innerHTML = `<b>Product Number: </b> ${product.id}`
-
-            
-            
-            productListItem.appendChild(productListTitle)
-            productListItem.appendChild(productListPrice)
-            productListItem.appendChild(productListDescription)
-            productListItem.appendChild(productListCategory)
-            productListItem.appendChild(productListImage)
-            productListItem.appendChild(productListId)
-            ul.appendChild(productListItem)
-
-            
+            createCustomElement('h1','product-list__title',product.title,productListItem)
+            createCustomElement('p','product-list__price',product.price,productListItem, "$")
+            createCustomElement('p','product-list__description',product.description,productListItem)
+            createCustomElement('p','product-list__category',product.category,productListItem,"Category:")
+            createCustomElement('img','product-list__image',product.image,productListItem)
+            createCustomElement('p','product-list__id',product.id,productListItem, "Product Id:")
+            list.appendChild(productListItem)
         })
+        ul.appendChild(list)
     }).catch((error)=>{
         console.log(error)
     })
-    //ul.appendChild(list) //Recomkendaban hacerlo pero no se porque
     console.log(ul)
 }
 loadData(url)
 
+
+function createCustomElement(htmlTag, htmlTagClass, htmlTagContent, appendTag, boldText="") {
+    let newTag = document.createElement(htmlTag)
+    newTag.classList.add(htmlTagClass)
+    if(htmlTag === "img"){
+        newTag.src = `${htmlTagContent}`
+        appendTag.appendChild(newTag)
+        return
+    }
+    newTag.innerHTML = `<b>${boldText}</b> ${htmlTagContent}` 
+    appendTag.appendChild(newTag)
+}
 
 userInput.addEventListener("keypress", (event)=>{
     if(event.key==="Enter"){
