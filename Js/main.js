@@ -8,7 +8,9 @@ function loadData(url) {
         return response.json();
     }).then((data)=>{
         let products = data
-        products.map((product)=>{
+        //Se puede hacer un foreach
+        products.forEach((product)=>{
+
             let productListItem = document.createElement('li')
             let productListTitle= document.createElement('h1')
             let productListPrice= document.createElement('p')

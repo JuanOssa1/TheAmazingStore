@@ -28,7 +28,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .main-form__input {
   margin: 10px 10px;
   border-radius: 5px;
@@ -36,7 +35,6 @@ body {
   width: 300px;
   height: 30px;
 }
-
 .main-form__input:hover {
   border-color: gray;
 }
@@ -74,6 +72,11 @@ body {
   margin: 9px;
   border: 1px solid #000;
   border-radius: 5px;
+  align-items: center;
+}
+
+.product-list__item:hover {
+  border-color: gray;
 }
 
 .product-list__title {
@@ -101,7 +104,6 @@ body {
   width: 225px;
   grid-column: 3;
   grid-row: 1/6;
-  align-items: center;
 }
 
 .product-list__id {
