@@ -1,5 +1,6 @@
-const url = 'http://localhost:3000/products'
-const ul = document.getElementById('productListId')
+let url = 'http://localhost:3000/products'
+let ul = document.getElementById('productListId')
+let userInput = document.getElementById('mainFormInputId')
 //const list = document.createDocumentFragment();
 
 function loadData(url) {
@@ -8,13 +9,13 @@ function loadData(url) {
     }).then((data)=>{
         let products = data
         products.map((product)=>{
-            let productListItem = document.createElement('li')//.classList.add('product-list__item');
-            let productListTitle= document.createElement('h1')//.classList.add('product-list__title');
-            let productListPrice= document.createElement('p')//.classList.add('product-list__price');
-            let productListDescription= document.createElement('p')//.classList.add('product-list__description');
-            let productListCategory= document.createElement('p')//.classList.add('product-list__category');
-            let productListImage= document.createElement('img')//.classList.add('product-list__image');
-            let productListId= document.createElement('p')//.classList.add('product-list__id');
+            let productListItem = document.createElement('li')
+            let productListTitle= document.createElement('h1')
+            let productListPrice= document.createElement('p')
+            let productListDescription= document.createElement('p')
+            let productListCategory= document.createElement('p')
+            let productListImage= document.createElement('img')
+            let productListId= document.createElement('p')
 
             productListItem.classList.add('product-list__item')
             productListTitle.classList.add('product-list__title')
@@ -51,3 +52,12 @@ function loadData(url) {
     console.log(ul)
 }
 loadData(url)
+
+
+userInput.addEventListener("keypress", (event)=>{
+    if(event.key==="Enter"){
+        ul.innerHTML=""
+        loadData(url+"?q="+userInput.value)
+    }
+})
+
