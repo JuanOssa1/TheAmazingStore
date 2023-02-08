@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "sass ./Styles/main.scss main.css --no-source-map",
-    "jsoninfo": "json-server info.json"
+    "transpile": "sass ./Sass/main.scss ./Css/main.css --no-source-map ",
+    "transpileNav": "sass ./Sass/mainNav.scss ./Css/mainNav.css --no-source-map",
+    "transpileContent": "sass ./Sass/mainContent.scss ./Css/mainContent.css --no-source-map",
+    "jsoninfo": "json-server ./Db/info.json"
   },
   "repository": {
     "type": "git",
