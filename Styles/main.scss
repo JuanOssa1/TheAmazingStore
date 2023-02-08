@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Ubuntu:wght@300&display=swap');
-
 * {
     padding: 0;
     margin: 0;
@@ -12,16 +11,27 @@ html {
 body{
     background: url("../images/shoppingBackground.avif");
 }
+@mixin define-size($width, $height){
+    width: $width;
+    height: $height;
+}
+
+
+
 
 .main-nav {
-    //position: absolute;
-    position: fixed;
+    //@include define-size(100%, );
+    position: fixed; //Se puede hacer un mixin que use parametros opcionales, por ejemplo que no use el height?
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #acddf1;
     flex-direction: column;
+    &__title{
+        font-family: 'Lato', sans-serif;
+        font-size: 40px;
+    }
 }
 .main-form {
     display: flex;
@@ -29,28 +39,24 @@ body{
     align-items: center;
 
     &__input {
+        @include define-size(300px,30px);
         margin: 10px 10px;
         border-radius: 5px;
         border: 2px solid black;
-        width: 300px;
-        height: 30px;
         &:hover{
             border-color: gray
         }
-
+    }
+    &__icon {
+        height: 25px;
+        width: 25px;
     }
 }
 
 
-.main-form__image{
-    height: 25px;
-    width: 25px;
-}
 
-.main-nav__title {
-    font-family: 'Lato', sans-serif;
-    font-size: 40px;
-}
+
+
 
 .main-content__title {
     font-size: 35px;
@@ -58,54 +64,59 @@ body{
     padding-top: 110px;//Porque aqui si pongo margin se core es todo
     padding-bottom: 25px;
 }
+.basic-small-container{ //Que nombre le puedo poner a un extend sin romper el BEM
+    @include define-size(200px,30px);
+    grid-column: 1;
+    align-items: flex-end;
+}
 .product-list {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: wrap;
+    &__item {
+        @include define-size(466px,400px);
+        display: grid;
+        gap: 5px;
+        grid-template-columns: 200px 30px;
+        grid-auto-rows: minmax(10px, auto);
+        padding: 10px;
+        margin: 9px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        align-items: center;
+        &:hover{
+            border-color: gray ;
+        } 
+    }
+    &__title{
+        grid-column: 1 / 4;
+        grid-row: 1;  
+    }
+    &__description{
+        height: 212px;
+        width: 235px;
+        grid-column: 1 / 3;
+        grid-row: 2;
+        overflow: hidden;
+    }
+    &__price{
+        @extend .basic-small-container;
+        grid-row: 3; //alto//Otro comentario
+    }
+    &__category{
+        @extend .basic-small-container;
+        grid-row: 4;
+    }
+    &__id{
+        @extend .basic-small-container;
+        grid-row: 5;
+    }
+    &__image{
+        height: 225px;
+        width: 225px;
+        grid-column: 3;
+        grid-row: 1 / 6;
+    }  
 }
-.product-list__item {
-    display: grid;
-    gap: 5px;
-    grid-template-columns: 200px 30px;
-    grid-auto-rows: minmax(10px, auto);
-    padding: 10px;
-    margin: 9px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    align-items: center;
 
-}
-.product-list__item:hover {
-    border-color: gray ;
-}
-.product-list__title {
-    grid-column: 1 / 3;
-    grid-row: 1;
-}
-.product-list__description {
-    grid-column: 1 / 3;
-    grid-row: 2;
-}
-
-.product-list__price {
-    grid-column: 1; //ancho
-    grid-row: 3; //alto//Otro comentario
-}
-
-.product-list__category {
-    grid-column: 1;
-    grid-row: 4;
-}
-
-.product-list__image {
-    height: 225px;
-    width: 225px;
-    grid-column: 3;
-    grid-row: 1 / 6;
-}
-
-.product-list__id {
-    grid-column: 1;
-    grid-row: 5;
-}
