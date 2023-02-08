@@ -1,0 +1,34 @@
+@import "./main.scss";
+
+.main-nav {
+    //@include define-size(100%, );
+    position: fixed; //Se puede hacer un mixin que use parametros opcionales, por ejemplo que no use el height?
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #acddf1;
+    flex-direction: column;
+    &__title{
+        font-family: 'Lato', sans-serif;
+        font-size: 40px;
+    }
+}
+.main-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__input {
+        @include define-size(300px,30px);
+        margin: 10px 10px;
+        border-radius: 5px;
+        border: 2px solid black;
+        &:hover{
+            border-color: gray
+        }
+    }
+    &__icon {
+        @include define-size(25px,25px);
+    }
+}
