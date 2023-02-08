@@ -42,7 +42,7 @@ body {
   grid-auto-rows: minmax(10px, auto);
   padding: 10px;
   margin: 9px;
-  border: 1px solid #000;
+  border: 1px solid black;
   border-radius: 5px;
   align-items: center;
 }

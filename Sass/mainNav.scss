@@ -1,4 +1,5 @@
 @import "./main.scss";
+@import "./constants.scss";
 
 .main-nav {
     //@include define-size(100%, );
@@ -7,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #acddf1;
+    background-color: $base-color;
     flex-direction: column;
     &__title{
         font-family: 'Lato', sans-serif;
@@ -23,9 +24,9 @@
         @include define-size(300px,30px);
         margin: 10px 10px;
         border-radius: 5px;
-        border: 2px solid black;
+        border: 2px solid $base-border-color;
         &:hover{
-            border-color: gray
+            border-color: $border-hover-color
         }
     }
     &__icon {

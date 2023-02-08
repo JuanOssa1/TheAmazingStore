@@ -1,5 +1,5 @@
 @import "./main.scss";
-
+@import "./constants.scss";
 
 
 
@@ -27,11 +27,11 @@
         grid-auto-rows: minmax(10px, auto);
         padding: 10px;
         margin: 9px;
-        border: 1px solid #000;
+        border: 1px solid $base-border-color;
         border-radius: 5px;
         align-items: center;
         &:hover{
-            border-color: gray ;
+            border-color: $border-hover-color ;
         } 
     }
     &__title{
