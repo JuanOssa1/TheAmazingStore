@@ -47,8 +47,6 @@ userInput.addEventListener("keypress", (event)=>{
     if(event.key==="Enter"){
         ul.innerHTML=""
         loadData(filterProducts(products, userInput.value))
-        
-        //loadData(url+"?q="+userInput.value)
     }
 })
 function filterProducts(productsToFilter, decisionAttribute) {
