@@ -11,7 +11,7 @@ function fetchData () {
         products = data
         loadData(products)
     }).catch((error)=>{
-        console.log(error)
+        error
     }) 
 }
 const loadData = async (productsToShow) => {
@@ -27,7 +27,6 @@ const loadData = async (productsToShow) => {
         list.appendChild(productListItem)
     })
     ul.appendChild(list)
-    console.log(ul)
 }
 fetchData()
 
@@ -53,7 +52,6 @@ function filterProducts(productsToFilter, decisionAttribute) {
     const resul = productsToFilter.filter((product)=>{
         return product.category.includes(decisionAttribute)
     })
-    console.log(resul)
     return resul;  
 }
 
