@@ -1,15 +1,16 @@
-@import "./main.scss";
 @import "./constants.scss";
 
 
-
+.main-content{
+    margin-top: 110px;
+}
 .main-content__title {
     font-size: 35px;
     font-weight: 300;
-    padding-top: 110px;//Porque aqui si pongo margin se core es todo
+    padding-top: 0px;
     padding-bottom: 25px;
 }
-.basic-small-container{ //Que nombre le puedo poner a un extend sin romper el BEM
+.basic-small-container{ 
     @include define-size(200px,30px);
     grid-column: 1;
     align-items: flex-end;

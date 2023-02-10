@@ -1,8 +1,8 @@
 let url = 'http://localhost:3000/products'
-let ul = document.getElementById('productListId')
-let userInput = document.getElementById('mainFormInputId')
+let ul = document.getElementById('productListId')!
+let userInput = document.getElementById('mainFormInputId')! as HTMLInputElement
 const list = document.createDocumentFragment();
-let products;
+let products: any;
 
 function fetchData () {
     fetch(url).then((response)=>{
@@ -14,8 +14,8 @@ function fetchData () {
         error
     }) 
 }
-const loadData = async (productsToShow) => {
-    productsToShow.forEach((product)=>{ 
+const loadData = async (productsToShow: any) => {
+    productsToShow.forEach((product: any)=>{ 
         let productListItem = document.createElement('li')
         productListItem.classList.add('product-list__item')
         createCustomElement('h1','product-list__title',product.title,productListItem)
@@ -30,7 +30,7 @@ const loadData = async (productsToShow) => {
 }
 fetchData()
 
-function createCustomElement(htmlTag, htmlTagClass, htmlTagContent, appendTag, boldText="") {
+function createCustomElement(htmlTag: any, htmlTagClass: any, htmlTagContent: any, appendTag: any, boldText: any="") {
     let newTag = document.createElement(htmlTag)
     newTag.classList.add(htmlTagClass)
     if(htmlTag === "img"){
@@ -48,8 +48,8 @@ userInput.addEventListener("keypress", (event)=>{
         loadData(filterProducts(products, userInput.value))
     }
 })
-function filterProducts(productsToFilter, decisionAttribute) {
-    const resul = productsToFilter.filter((product)=>{
+function filterProducts(productsToFilter: any, decisionAttribute: any) {
+    const resul = productsToFilter.filter((product: any)=>{
         return product.category.includes(decisionAttribute)
     })
     return resul;  

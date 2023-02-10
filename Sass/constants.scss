@@ -1,3 +1,12 @@
 $base-color: #acddf1;
 $base-border-color: black;
 $border-hover-color: gray;
+
+@mixin define-size($width, $height:""){
+    @if($height==""){
+        width: $width;
+    } @else{
+        width: $width;
+        height: $height;
+    }
+}

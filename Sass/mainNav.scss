@@ -1,9 +1,9 @@
-@import "./main.scss";
 @import "./constants.scss";
 
 .main-nav {
     //@include define-size(100%, );
     position: fixed; //Se puede hacer un mixin que use parametros opcionales, por ejemplo que no use el height?
+    top:0;
     width: 100%;
     display: flex;
     justify-content: center;
