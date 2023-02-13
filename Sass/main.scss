@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Ubuntu:wght@300&display=swap');
-* {
-    
-}
 
 html {
     box-sizing: border-box;
@@ -10,7 +7,18 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
-    background: url("../images/shoppingBackgroundBlurred.png");
+}
+.custom-bg{
+    background-image: url(../images/shoppingBackgroundBlurred.png);
+    filter: blur(8px);
+    height: 100vh;
+    background-position: center;
+    background-size:cover;
+    //background-repeat: space repeat;
+    //width: 100%;
+    //position: absolute;
+    //z-index: -1;
+    //top: 0;
 }
 p{
     padding: 0;

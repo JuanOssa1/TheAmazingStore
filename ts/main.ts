@@ -2,20 +2,22 @@ let url = 'http://localhost:3000/products'
 let ul = document.getElementById('productListId')!
 let userInput = document.getElementById('mainFormInputId')! as HTMLInputElement
 const list = document.createDocumentFragment();
-let products: any;
+
+
+let products: Product[]=[];
 
 function fetchData () {
     fetch(url).then((response)=>{
         return response.json();
-    }).then((data)=>{
+    }).then((data: Product[])=>{
         products = data
         loadData(products)
     }).catch((error)=>{
         error
     }) 
 }
-const loadData = async (productsToShow: any) => {
-    productsToShow.forEach((product: any)=>{ 
+const loadData =  (productsToShow: Product[]=[]) => {
+    productsToShow.forEach((product: Product)=>{ 
         let productListItem = document.createElement('li')
         productListItem.classList.add('product-list__item')
         createCustomElement('h1','product-list__title',product.title,productListItem)
@@ -29,11 +31,11 @@ const loadData = async (productsToShow: any) => {
     ul.appendChild(list)
 }
 fetchData()
-
-function createCustomElement(htmlTag: any, htmlTagClass: any, htmlTagContent: any, appendTag: any, boldText: any="") {
+//Dado que append tg puidera ser un inputHTMLelement que se pondria alli asi como se hio esta bien?
+function createCustomElement(htmlTag: string, htmlTagClass: string, htmlTagContent: string, appendTag: HTMLLIElement|HTMLInputElement, boldText: string="") {
     let newTag = document.createElement(htmlTag)
     newTag.classList.add(htmlTagClass)
-    if(htmlTag === "img"){
+    if(newTag instanceof HTMLImageElement){
         newTag.src = `${htmlTagContent}`
         appendTag.appendChild(newTag)
         return
@@ -48,8 +50,8 @@ userInput.addEventListener("keypress", (event)=>{
         loadData(filterProducts(products, userInput.value))
     }
 })
-function filterProducts(productsToFilter: any, decisionAttribute: any) {
-    const resul = productsToFilter.filter((product: any)=>{
+function filterProducts(productsToFilter: Product[], decisionAttribute: string) {
+    const resul = productsToFilter.filter((product: Product)=>{
         return product.category.includes(decisionAttribute)
     })
     return resul;  

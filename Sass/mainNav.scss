@@ -4,6 +4,7 @@
     //@include define-size(100%, );
     position: fixed; //Se puede hacer un mixin que use parametros opcionales, por ejemplo que no use el height?
     top:0;
+    z-index: 2;
     width: 100%;
     display: flex;
     justify-content: center;
