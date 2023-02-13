@@ -2,7 +2,10 @@
 
 
 .main-content{
-    margin-top: 110px;
+    top: 110px;
+    height: 897px;
+    overflow: scroll;
+    position: absolute;
 }
 .main-content__title {
     font-size: 35px;

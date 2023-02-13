@@ -16,7 +16,7 @@ function fetchData () {
         error
     }) 
 }
-const loadData = async (productsToShow: Product[]) => {
+const loadData =  (productsToShow: Product[]=[]) => {
     productsToShow.forEach((product: Product)=>{ 
         let productListItem = document.createElement('li')
         productListItem.classList.add('product-list__item')
@@ -35,9 +35,8 @@ fetchData()
 function createCustomElement(htmlTag: string, htmlTagClass: string, htmlTagContent: string, appendTag: HTMLLIElement|HTMLInputElement, boldText: string="") {
     let newTag = document.createElement(htmlTag)
     newTag.classList.add(htmlTagClass)
-    if(htmlTag === "img"){
-        let imageTag = newTag as HTMLImageElement
-        imageTag.src = `${htmlTagContent}`
+    if(newTag instanceof HTMLImageElement){
+        newTag.src = `${htmlTagContent}`
         appendTag.appendChild(newTag)
         return
     }
