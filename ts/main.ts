@@ -38,8 +38,8 @@ const loadData = async (productsToShow: Product[]) => {
     ul.appendChild(list)
 }
 fetchData()
-//Dado que append tg puidera ser un inputHTMLelement que se pondria alli 
-function createCustomElement(htmlTag: string, htmlTagClass: string, htmlTagContent: string, appendTag: HTMLLIElement, boldText: string="") {
+//Dado que append tg puidera ser un inputHTMLelement que se pondria alli asi como se hio esta bien?
+function createCustomElement(htmlTag: string, htmlTagClass: string, htmlTagContent: string, appendTag: HTMLLIElement|HTMLInputElement, boldText: string="") {
     let newTag = document.createElement(htmlTag)
     newTag.classList.add(htmlTagClass)
     if(htmlTag === "img"){
