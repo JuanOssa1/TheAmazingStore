@@ -2,14 +2,7 @@ let url = 'http://localhost:3000/products'
 let ul = document.getElementById('productListId')!
 let userInput = document.getElementById('mainFormInputId')! as HTMLInputElement
 const list = document.createDocumentFragment();
-type Product = {
-    title: string,
-    price: string,
-    description: string,
-    category: string,
-    image: string,
-    id: string
-}
+
 
 let products: Product[]=[];
 
